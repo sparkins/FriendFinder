@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS friendfinder;
+
+USE friendfinder;
+
+CREATE TABLE IF NOT EXISTS friends(
+    id INT AUTO_INCREMENT,
+    name VARCHAR(25) NOT NULL,
+    Q1 INT NOT NULL,
+    Q2 INT NOT NULL,
+    Q3 INT NOT NULL,
+    PRIMARY KEY (id)
+);
+
