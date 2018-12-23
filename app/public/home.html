@@ -8,9 +8,11 @@
 
     <title>FF Home</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/app/public/assets/css/style.css">
 
 </head>
 
@@ -19,24 +21,51 @@
     <!-- Create page title -->
     <div class="container imageContainer">
         <div class="jumbotron">
-            <div id="ff-title"><h1>Friend Finder</h1></div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 instructions"><h2>Click the button below to take the attached Survey</h2></div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 instructions"><h2>will then find you a friend who is most compatible!</h2></div>
-        </div>
-            <div class="col-md-4"></div>
-            <form action ="/survey" method="GET" class="col-md-4">
-            <button type="button" class="btn btn-block btn-lg start-button">Go To Survey</button>
+            <div id="ff-title">
+                <h1>Friend Finder</h1>
             </div>
-            <div class="col-md-4"></div>
         </div>
+        <div class="row">
+            <div class="col-md-12 instructions">
+                <h2>Click the button below to take the Friend Finder Survey</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 instructions">
+                <h2>We will then give you the friend who is most compatible!</h2>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="toSurvey"><i class="fa fa-check-circle"
+                aria-hidden="true"></i>
+            To The Survey</button>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <hr>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>     -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(() => {
+            $('#toSurvey').on('click', (event) => {
+                event.preventDefault();
+                console.log("Clicked survey");
+                <a href="http://localhost:3000/survey">Clicked survey</a>
+
+                // $.ajax({
+                //     url: "http://localhost:3000/survey",
+                //     method: "GET"
+                // })
+            })
+        })
+    </script>
 
 </body>
 
