@@ -60,7 +60,7 @@ module.exports = function (app) {
 
       // Find out which is the lowest score (a.k.a your best match)
       var closestMatch = parseInt(Math.min.apply(null, friendsDifference));
-      // console.log(closestMatch);
+      console.log(closestMatch);
       
       // Get the index of the friend with the lowest differencial
       matchIndex = friendsDifference.indexOf(closestMatch);
@@ -68,6 +68,8 @@ module.exports = function (app) {
       // Grab the name of your new best friend
       var yourBestFriend = results[matchIndex].name;
       console.log("You Should meet: " + yourBestFriend);
+      
+
     });
 
     // Function that creates a new array of scores for the db friend and then compares the results against the current user.
@@ -78,27 +80,27 @@ module.exports = function (app) {
       var yourScores = [];
       var difference = 0;
 
-      // Create an array of scores for teh current db friend being evaluated.
+      // Create an array of scores for the current db friend being evaluated.
       // yourScores.push(name);
       yourScores.push(results[count].Q1);
       yourScores.push(results[count].Q2);
       yourScores.push(results[count].Q3);
-      yourScores.push(results[count].q4);
-      yourScores.push(results[count].q5);
+      yourScores.push(results[count].Q4);
+      yourScores.push(results[count].Q5);
       yourScores.push(results[count].Q6);
       yourScores.push(results[count].Q7);
       yourScores.push(results[count].Q8);
-      yourScores.push(results[count].q9);
-      yourScores.push(results[count].q10);
+      yourScores.push(results[count].Q9);
+      yourScores.push(results[count].Q10);
 
-      // Checks each question result and sum's teh difference of each (using absolute numbers).
+      // Checks each question result and sum's the difference of each (using absolute numbers).
       for (var i = 0; i < myScoresArr.length; i++) {
         difference += Math.abs(myScoresArr[i] - yourScores[i]);
       }
 
       // Pushes the total difference to a new array friendsDifference
       // console.log("Final Difference= " + difference);
-      // console.log(name, yourScores)
+      console.log(name, yourScores)
       friendsDifference.push(difference);
       return (friendsDifference);
     }

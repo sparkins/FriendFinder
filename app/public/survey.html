@@ -7,16 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>FF Survey</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
 <body>
+
+    <!-- <script>$('.myModal').modal('hide')</script> -->
 
     <!-- Container for my Survey -->
     <div class="container">
@@ -36,7 +41,6 @@
 
         <h5>Question 1:</h5>
         <div class="form-group">
-            <!-- <label for="userResponses"></label> -->
             <select class="form-control q1">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2 (Somewhat Disagree</option>
@@ -47,7 +51,6 @@
         </div>
         <h5>Question 2:</h5>
         <div class="form-group">
-            <!-- <label for="userResponses"></label> -->
             <select class="form-control q2">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2 (Somewhat Disagree</option>
@@ -58,7 +61,6 @@
         </div>
         <h5>Question 3: A good sense of humor is important to me?</h5>
         <div class="form-group">
-            <!-- <label for="></label> -->
             <select class="form-control q3">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2 (Somewhat Disagree</option>
@@ -69,7 +71,6 @@
         </div>
         <h5>Question 4:</h5>
         <div class="form-group">
-            <!-- <label for="></label> -->
             <select class="form-control q4">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2 (Somewhat Disagree</option>
@@ -80,7 +81,6 @@
         </div>
         <h5>Question 5:</h5>
         <div class="form-group">
-            <!-- <label for="></label> -->
             <select class="form-control q5">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2 (Somewhat Disagree</option>
@@ -89,8 +89,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
+        <h5>Question 6:</h5>
         <div class="form-group">
-            <!-- <label for="></label> -->
             <select class="form-control q6">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2 (Somewhat Disagree</option>
@@ -99,8 +99,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
+        <h5>Question 7:</h5>
         <div class="form-group">
-            <!-- <label for="></label> -->
             <select class="form-control q7">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2 (Somewhat Disagree</option>
@@ -109,8 +109,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
+        <h5>Question 8:</h5>
         <div class="form-group">
-            <!-- <label for="></label> -->
             <select class="form-control q8">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2 (Somewhat Disagree</option>
@@ -119,8 +119,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
+        <h5>Question 9:</h5>
         <div class="form-group">
-            <!-- <label for="></label> -->
             <select class="form-control q9">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2 (Somewhat Disagree</option>
@@ -129,8 +129,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
+        <h5>Question 10:</h5>
         <div class="form-group">
-            <!-- <label for="></label> -->
             <select class="form-control q10">
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2 (Somewhat Disagree</option>
@@ -150,48 +150,28 @@
 
         <hr>
 
-        <!-- Modal Window to show you your comatiple friend -->
-        <!-- <div class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
+        <!-- Modal Window to show you your compatible friend -->
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
             </div>
-        </div> -->
+
+        </div>
     </div>
-
-
-    
-
-</script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+
     <script>
-        // This line of code will grab the input from the textbox
+
         var formData = {};
-
-
-        // for (i = 1; i < 6; i++) {
-        //     qnum = "q" + i;
-        //     var myQuery = qnum + " option:selected";
-        //     console.log(myQuery);
-        //     formData.qnum = $("q1 option:selected").val()
-        //     console.log(formData.qnum);
-        //     console.log($("#q1").val());
-        // }
 
         $(document).ready(() => {
             $('#submit').on('click', (event) => {
@@ -199,16 +179,17 @@
                 console.log("Clicked submit");
                 formData.name = $("#surveyName").val();
                 formData.photoLink = $("#photoImage").val();
-                for (i = 1; i < 10; i++) {
+                for (i = 1; i < 11; i++) {
                     var qnum = "q" + i;
                     var myQuery = "." + qnum + " option:selected";
                     formData[qnum] = $(myQuery).val();
                 }
-                console.log(formData);
+                console.log("formData", formData);
                 $.post('http://localhost:3000/friends', formData)
                     .then(data => {
                         console.log(data)
                     })
+                // $('#myModal').modal('show');
             });
         })
     </script>
