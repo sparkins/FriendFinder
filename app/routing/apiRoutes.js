@@ -68,7 +68,7 @@ module.exports = function (app) {
       // Grab the name of your new best friend
       var yourBestFriend = results[matchIndex].name;
       console.log("You Should meet: " + yourBestFriend);
-      
+      // document.getElementById("#friend-name").text(yourBestFriend);
 
     });
 

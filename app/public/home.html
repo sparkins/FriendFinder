@@ -57,7 +57,10 @@
             $('#toSurvey').on('click', (event) => {
                 event.preventDefault();
                 console.log("Clicked survey");
-                <a href="http://localhost:3000/survey">Clicked survey</a>
+                // $.get('http://localhost:3000/survey')
+                $.ajax({ url: "http://localhost:3000/survey", method: "GET" })
+
+                // <a href="http://localhost:3000/survey">Clicked survey</a>
 
                 // $.ajax({
                 //     url: "http://localhost:3000/survey",
