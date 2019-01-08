@@ -3,6 +3,7 @@ var bodyParser = require('body-parser')
 
 var app = express();
 
+var PORT = process.env.PORT || 3000;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -23,6 +24,6 @@ require('./app/routing/apiRoutes')(app);
 require('./app/routing/htmlRoutes')(app);
 // require('./app/data/friends')(app);
 
-app.listen(3000, function(){
-	console.log('listening on 3000');
+app.listen(PORT, function(){
+	console.log('listening on '+PORT);
 });
