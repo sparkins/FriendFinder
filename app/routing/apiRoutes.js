@@ -3,9 +3,13 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var mysql = require('mysql');
+var connection;
 
 // Initializes the connection variable to sync with a MySQL database
-var connection = mysql.createConnection({
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
   host: "localhost",
 
   // Your port; if not 3306
@@ -18,6 +22,7 @@ var connection = mysql.createConnection({
   password: "password",
   database: "friendfinder"
 });
+}
 
 // Connecting apiRoutes to server.js, making sure routes are available when server.js is running
 module.exports = function (app) {
@@ -35,7 +40,7 @@ module.exports = function (app) {
 
   // Post route for /friends - Check your survey results vs friends in DB, suggest a best friend and then submit your results to mysql db
   app.post('/friends', function (req, res) {
-    // Global Variables
+
     var friendsDifference = [];
     var matchIndex;
     var myScoresArr = [];
