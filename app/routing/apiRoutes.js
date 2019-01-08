@@ -22,11 +22,8 @@ var connection = mysql.createConnection({
 // Connecting apiRoutes to server.js, making sure routes are available when server.js is running
 module.exports = function (app) {
 
-  // Global Variables
-  var friendsDifference = [];
-  var friendsArray = [];
-  var matchIndex;
-  var myScoresArr = [];
+
+  // var yourBestFriend = "";
 
   // get route for /friends - display all friends to the browser
   app.get('/friends', function (req, res) {
@@ -38,7 +35,23 @@ module.exports = function (app) {
 
   // Post route for /friends - Check your survey results vs friends in DB, suggest a best friend and then submit your results to mysql db
   app.post('/friends', function (req, res) {
+    // Global Variables
+    var friendsDifference = [];
+    var matchIndex;
+    var myScoresArr = [];
+    // Finally a mysql connection to submit your results to the friends db
+    connection.query('INSERT INTO friends (name, photoLink, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    [req.body.name, req.body.photoLink, parseInt(req.body.q1), parseInt(req.body.q2), parseInt(req.body.q3), 
+      parseInt(req.body.q4), parseInt(req.body.q5), parseInt(req.body.q6), parseInt(req.body.q7), parseInt(req.body.q8), 
+      parseInt(req.body.q9), parseInt(req.body.q10)], function (error, results, fields) {
+      if (error) throw error;
+      // res.send("New Survey For: " + req.body.name + " was submitted");
+    });
+
+
     connection.query('SELECT * FROM friends', function (error, results, fields) {
+      console.log(req.body);
+      
       if (error) throw error;
       // Create an array of scores for the user, to be compared later.
       myScoresArr.push(req.body.q1);
@@ -54,13 +67,14 @@ module.exports = function (app) {
       console.log("MyScoresArray: " + myScoresArr)
 
       // For each friend in the DB, run the function findTheDifference
-      for (var i = 0; i < results.length; i++) {
+      for (var i = 0; i < results.length-1; i++) {
         findTheDifference(i, results, myScoresArr);
       }
 
       // Find out which is the lowest score (a.k.a your best match)
       var closestMatch = parseInt(Math.min.apply(null, friendsDifference));
       console.log(closestMatch);
+      console.log(friendsDifference);
       
       // Get the index of the friend with the lowest differencial
       matchIndex = friendsDifference.indexOf(closestMatch);
@@ -68,7 +82,11 @@ module.exports = function (app) {
       // Grab the name of your new best friend
       var yourBestFriend = results[matchIndex].name;
       console.log("You Should meet: " + yourBestFriend);
-      // document.getElementById("#friend-name").text(yourBestFriend);
+      // var yourBestFriend = {};
+      // yourBestFriend.name = results[matchIndex].name;
+      // yourBestFriend.photoLink = results[matchIndex].photoLink;
+      
+      res.json(results[matchIndex]);
 
     });
 
@@ -105,13 +123,6 @@ module.exports = function (app) {
       return (friendsDifference);
     }
 
-    // Finally a mysql connection to submit your results to the friends db
-    connection.query('INSERT INTO friends (name, photoLink, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [req.body.name, req.body.photoLink, parseInt(req.body.q1), parseInt(req.body.q2), parseInt(req.body.q3), 
-        parseInt(req.body.q4), parseInt(req.body.q5), parseInt(req.body.q6), parseInt(req.body.q7), parseInt(req.body.q8), 
-        parseInt(req.body.q9), parseInt(req.body.q10)], function (error, results, fields) {
-        if (error) throw error;
-        res.send("New Survey For: " + req.body.name + " was submitted");
-      });
+
   });
 }
